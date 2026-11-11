@@ -19,7 +19,6 @@
 ---
 
 ## About the project
-
 Mobile-game teams need to understand differences in player spending so they can make better-informed decisions about player engagement and monetization. This project studies three spending segments—**Minnow**, **Dolphin**, and **Whale**—using player and gameplay information.
 
 ### Business question
@@ -37,8 +36,18 @@ Mobile-game teams need to understand differences in player spending so they can 
 A well-validated segmentation workflow could help a game team explore whether different player groups respond to different engagement approaches. Any recommendations will be based on model evaluation and data limitations; synthetic records will not be treated as evidence about real players.
 
 ## Project status
-
 **Current status: Stages 1–3 in progress.** The team is preparing the business problem, documenting the dataset and its provenance, and reviewing data-quality issues. The proposed objective is under validation. Modeling, final recommendations, and deployment have not yet been completed.
+
+| Stage | Work | Status |
+|---|---|---|
+| 1. Business problem | Define the business context, objective, target, prediction timing, and measurable success criteria. | In progress |
+| 2. Data collection | Record Kaggle source, license, suitability, search evidence, and approval for synthetic expansion. |  in progress |
+| 3. Data understanding & cleaning | Profile missingness, duplicates, inconsistent formats, invalid values, and cleaning decisions. | In progress |
+| 4. EDA & feature engineering | Develop visual analysis and meaningful features. | Planned |
+| 5. Model development | Compare at least two suitable models. | Planned |
+| 6. Tuning & evaluation | Tune and evaluate using appropriate metrics. | Planned |
+| 7. Deployment | Build and deploy a Streamlit application. | Planned |
+
 
 
 ## Dataset
@@ -134,11 +143,10 @@ Browse the notebooks directly in this repository:
 
 | Member | Student ID / GitHub username | Main responsibility |
 |---|---|---|
-| [Member 1] | [ID / username] | [Responsibility] |
+| [Hessa Khalfan] | [H00535166] | [Responsibility] |
 | [Member 2] | [ID / username] | [Responsibility] |
-| [Member 3, if applicable] | [ID / username] | [Responsibility] |
+| [Member 3] | [ID / username] | [Responsibility] |
 
-Each member should make regular, meaningful commits documenting their own work.
 
 ## License
 
