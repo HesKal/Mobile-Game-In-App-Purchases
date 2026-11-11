@@ -150,7 +150,7 @@ Browse the notebooks directly in this repository:
 
 ## License
 
-The team's original project code is licensed under the [MIT License](LICENSE). This license applies to code owned by the team; it does **not** replace or change the Kaggle dataset's separate license or the terms for any third-party material. Before committing, confirm that all group members agree to use MIT and replace the copyright-holder placeholder in `LICENSE` with the agreed team name or copyright holders.
+The team's original project code is licensed under the [MIT License](LICENSE). 
 
 ## Acknowledgements and AI use
 
