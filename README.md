@@ -144,7 +144,7 @@ Browse the notebooks directly in this repository:
 | Member | Student ID / GitHub username | Main responsibility |
 |---|---|---|
 | [Hessa Khalfan] | [H00535166] | [Responsibility] |
-| [Member 2] | [ID / username] | [Responsibility] |
+| [Nourah Abdulla] | [H00535834] | [Responsibility] |
 | [Member 3] | [ID / username] | [Responsibility] |
 
 
