@@ -2,6 +2,8 @@
 
 # 🎮 Mobile Game Player Spending Segmentation
 
+### Player Intelligence · CDS4003 Data Science Project
+
 <img width="2688" height="1152" alt="player_segmentation_hero" src="https://github.com/user-attachments/assets/3936ddc0-1a28-41b4-8559-cef9934d80bd" />
 
 ### Turning player-behaviour data into smarter, more timely engagement
@@ -10,7 +12,6 @@
 ![Classification](https://img.shields.io/badge/ML%20TASK-MULTI--CLASS%20CLASSIFICATION-0891B2?style=for-the-badge)
 ![Project Status](https://img.shields.io/badge/STATUS-IN%20PROGRESS-16A34A?style=for-the-badge)
 
-</div>
 
 **A group data-science project exploring how mobile-game players can be segmented into Minnows, Dolphins, and Whales to support more relevant player engagement.**
 
@@ -56,12 +57,19 @@ The Kaggle listing describes its dataset as synthetic. The original source and t
 ### 1- Data-quality work
 - [02 — Data cleaning](notebooks/02_data_cleaning.ipynb)
 
+### 2-  Feature engineering 
+
+
+### 3-  Classification model development and comparison 
+
+### 4-  Model evaluation and interpretation 
+
+
+### 5-  Model evaluation and interpretation 
 
 
 
-
-
-## Results
+## Visuals & results
 
 **Results will be added after data cleaning, exploratory analysis, model comparison, and evaluation have been completed.** No model performance or business impact is claimed at this stage.
 
@@ -82,11 +90,13 @@ The Kaggle listing describes its dataset as synthetic. The original source and t
 | [Member 3] | [ID - [@MaryamBinHamdah](https://github.com/MaryamBinHamdah)] | [Responsibility] |
 
 
-## License
+## License & attribution
 
-The team's original project code is licensed under the [MIT License](LICENSE). 
+The team's original code is licensed under the [MIT License](LICENSE). The Kaggle dataset and any other third-party materials remain subject to their own license and terms.
 
-## Acknowledgements and AI use
+<div align="center">
 
-The original dataset is attributed to its Kaggle publisher (link above). Synthetic expansion and intentional quality issues are produced by the project team's documented code. List any AI tools used and describe their contribution in accordance with the assignment instructions and instructor guidance. The team remains responsible for checking, understanding, and being able to explain all submitted work.
+*Built by the CDS4003 project team · Work in progress*
+
+</div>
 
