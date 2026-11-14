@@ -4,6 +4,7 @@
 
 ### Player Intelligence · CDS4003 Data Science Project
 
+
 <img width="2688" height="1152" alt="Player segmentation project hero" src="https://github.com/user-attachments/assets/3936ddc0-1a28-41b4-8559-cef9934d80bd" />
 
 ### Turning player-behaviour data into smarter, more timely engagement
@@ -14,7 +15,7 @@
 
 **A group data-science project exploring how mobile-game players can be classified as Minnows, Dolphins, or Whales to support more relevant player engagement.**
 
-[Overview](#about-the-project) · [Dataset](#project-data) · [Workflow](#project-workflow) · [Files](#repository-files) · [Early findings](#visuals-and-early-findings) · [Team](#team)
+[Overview](#about-the-project) · [Dataset](#project-data) · [Workflow](#project-workflow)  · [Early findings](#visuals-and-early-findings) · [Team](#team)
 
 </div>
 
@@ -51,8 +52,9 @@ The source file contains **3,024 rows and 13 columns**. The project dataset was 
 |---|---|
 | Original Kaggle CSV · 3,024 rows × 13 columns | [Open original CSV](data/01_original_kaggle_data.csv) · [View Kaggle source](https://www.kaggle.com/datasets/pratyushpuri/mobile-game-in-app-purchases-dataset-2025) |
 | Expanded dataset · 250,000 rows × 23 columns | [Download expanded dataset ZIP](data/02_expanded_dirty_data.zip) |
-| Cleaned dataset · 247,500 rows × 23 columns | [Open cleaned zip](data/02_clean_data.zip) |
-
+| Cleaned dataset · 247,500 rows × 23 columns | [Download cleaned dataset ZIP](data/03_clean_data.zip) |
+| Data dictionary | [Open 01_data_dictionary.md](docs/01_data_dictionary.md) |
+| Dataset search evidence | [Open 02_dataset_search_evidence.pdf](docs/02_dataset_search_evidence.pdf) |
 
 The Kaggle listing describes its dataset as synthetic. The original source and the team's additional synthetic records are kept distinct throughout the project.
 
@@ -65,17 +67,7 @@ The Kaggle listing describes its dataset as synthetic. The original source and t
 5. **Model development and evaluation** — planned. Compare suitable multiclass models using macro-F1, balanced accuracy, per-class precision/recall, and a confusion matrix.
 6. **Business interpretation and deployment** — planned. Test campaign strategies with a holdout before considering a Streamlit demonstration or deployment.
 
-## Repository files
 
-The links below are relative to the repository root. Keep the folder names and filenames the same in GitHub so the links open correctly.
-
-| Project step | GitHub file |
-|---|---|
-| Data generation | [01_data_generation.ipynb](notebooks/01_data_generation.ipynb) |
-| Data cleaning | [02_data_cleaning.ipynb](notebooks/02_data_cleaning.ipynb) |
-| EDA and feature engineering | [03_eda_feature_engineering.ipynb](notebooks/03_eda_feature_engineering.ipynb) |
-| Feature-engineering script | [03_feature_engineering.py](scripts/03_feature_engineering.py) |
-| Key project charts | [Images folder](images/) |
 
 ## Visuals and early findings
 
@@ -86,6 +78,8 @@ Initial EDA shows only small differences across the current 30-day behavioural m
 ![Player counts by spending segment](images/target_distribution.png)
 
 ![Missing values before and after cleaning](images/cleaning_missing_values_comparison.png)
+
+
 
 ## Team
 
