@@ -87,7 +87,7 @@ Initial EDA shows only small differences across the current 30-day behavioural m
 |---|---|---|
 | [Hessa Khalfan](https://github.com/HesKal) | H00535166 · [@HesKal](https://github.com/HesKal) | Business problem formulation and dataset preparation; contributed to validation and quality visualizations. |
 | [Nourah Abdulla](https://github.com/NourahAlghfeli) | H00535834 · [@NourahAlghfeli](https://github.com/NourahAlghfeli) | Data understanding and cleaning; quality checks and cleaned-dataset review. |
-| [Maryam Ali Bin Hamdah](https://github.com/MaryamBinHamdah) | H00535836 · [@MaryamBinHamdah](https://github.com/MaryamBinHamdah) | Dataset search and selection; source, suitability, and Data dictionary. |
+| [Maryam Ali Bin Hamdah](https://github.com/MaryamBinHamdah) | H00535836 · [@MaryamBinHamdah](https://github.com/MaryamBinHamdah) | cleaning, Dataset search and selection; source, suitability, and Data dictionary. |
 
 ## License and attribution
 
