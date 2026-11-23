@@ -28,6 +28,8 @@ p, label, [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] {
 .eyebrow { color:#5b21b6; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; }
 .hero h1 { font-size:2rem; margin:.3rem 0 0; color:#17243b; }
 .panel { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:#fff; min-height:116px; box-shadow:0 6px 18px rgba(36,57,93,.05); }
+.offer-card { border-left:6px solid #6d28d9; }
+.goal-card { margin-top:12px; border:1px solid #d8c8f3; border-radius:16px; padding:16px 18px; background:#f4efff; }
 .panel-label { color:#43536b; font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; }
 .panel-value { color:#17243b; font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700; margin-top:8px; }
 .segment { border:2px solid #5970b8; border-radius:20px; padding:26px; background:linear-gradient(140deg,#e3f7f3,#edf0ff); }
@@ -111,6 +113,34 @@ if submitted:
     scores = {str(label): float(prob) for label, prob in zip(classes, probabilities)}
     score = scores.get(prediction, 0.0)
 
+with col_form:
+    if submitted:
+        ideas = {
+            "Minnow": ("Starter bundle", "Test an optional, low-price starter bundle with clear value."),
+            "Dolphin": ("Value bundle", "Test a time-limited bundle or loyalty reward suited to regular players."),
+            "Whale": ("Premium experience", "Test a premium bundle or VIP-style benefit with clear value."),
+        }
+        offer_title, offer_text = ideas[prediction]
+        st.markdown(f"""
+        <div class="panel offer-card">
+          <div class="panel-label">OFFER IDEA FOR THIS SEGMENT</div>
+          <div class="panel-value">{offer_title}</div>
+          <div class="small">{offer_text}</div>
+        </div>
+        <div class="goal-card">
+          <div class="panel-label">HOW THIS SUPPORTS NOVAPLAY'S GOAL</div>
+          <div class="small">Use the predicted segment to define a test audience. Compare this offer with a holdout group using incremental IAP revenue, contribution margin and retention. Expand only if results support progress toward the 15% revenue-growth target.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div class="panel offer-card">
+          <div class="panel-label">OFFER IDEA + BUSINESS TEST</div>
+          <div class="panel-value">Will appear after prediction</div>
+          <div class="small">The app will suggest an offer for the predicted segment and show how NovaPlay could test its business value.</div>
+        </div>
+        """, unsafe_allow_html=True)
+
 with col_side:
     st.subheader("Player segment result")
     if not submitted:
@@ -133,22 +163,6 @@ with col_side:
         st.caption("This is the model's score for this input—not the model's overall accuracy, and not a guarantee of future spending.")
         with st.expander("Compare scores across all segments"):
             st.bar_chart(pd.DataFrame({"Model score": [scores.get(label, 0.0) for label in LABELS]}, index=LABELS), horizontal=True, height=170, color="#6d28d9")
-
-        ideas = {
-            "Minnow": ("Starter bundle", "Test an optional, low-price starter bundle with clear value."),
-            "Dolphin": ("Value bundle", "Test a time-limited bundle or loyalty reward suited to regular players."),
-            "Whale": ("Premium experience", "Test a premium bundle or VIP-style benefit with clear value."),
-        }
-        offer_title, offer_text = ideas[prediction]
-        st.markdown(f"""
-        <div class="panel">
-          <div class="panel-label">OFFER IDEA TO TEST</div>
-          <div class="panel-value">{offer_title}</div>
-          <div class="small">{offer_text}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.markdown("**How this can support NovaPlay's goal**")
-        st.write("Use the segment to define a test audience, then compare the offer with a holdout group. Track incremental IAP revenue, contribution margin and retention; expand only if the test improves business outcomes. This supports evaluation of the 15% revenue-growth goal—it does not guarantee it.")
 
 st.info("The model uses age, country, device, favourite game genre, session count and average session length. Spending amounts and generated 30-day helper fields are not entered.")
 
