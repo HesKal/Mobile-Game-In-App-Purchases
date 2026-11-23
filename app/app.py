@@ -12,7 +12,7 @@ st.set_page_config(
     page_title="NovaPlay | Player Segment Studio",
     page_icon="🎮",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 st.markdown("""
@@ -24,10 +24,9 @@ st.markdown("""
 .block-container { max-width:1220px; padding-top:2rem; padding-bottom:3rem; }
 h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.025em; color:#17243b; }
 p, label, [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] { color:#263750; }
-.hero { border:1px solid #c5d3ea; border-radius:24px; padding:28px 32px; background:linear-gradient(115deg,#e7efff,#f9fbff 70%,#e8f7f7); box-shadow:0 12px 30px rgba(34,63,119,.09); margin-bottom:22px; }
-.eyebrow { color:#006874; font-weight:700; letter-spacing:.13em; text-transform:uppercase; font-size:.72rem; }
-.hero h1 { font-size:2.15rem; margin:.35rem 0 .35rem; color:#17243b; }
-.hero p { color:#344760; font-size:1rem; margin:0; max-width:820px; }
+.hero { border:1px solid #d5c7f1; border-left:7px solid #6d28d9; border-radius:18px; padding:18px 26px; background:linear-gradient(110deg,#f2edff,#fbfaff 70%,#fff1f3); box-shadow:0 8px 22px rgba(60,38,106,.08); margin-bottom:20px; }
+.eyebrow { color:#5b21b6; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; }
+.hero h1 { font-size:2rem; margin:.3rem 0 0; color:#17243b; }
 .panel { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:#fff; min-height:116px; box-shadow:0 6px 18px rgba(36,57,93,.05); }
 .panel-label { color:#43536b; font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; }
 .panel-value { color:#17243b; font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700; margin-top:8px; }
@@ -38,10 +37,10 @@ div[data-testid="stForm"] { border:1px solid var(--line); border-radius:18px; pa
 [data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] label { color:#243751 !important; font-weight:600 !important; }
 div[data-testid="stNumberInput"] input, div[data-testid="stSelectbox"] [data-baseweb="select"] > div { background:#fff !important; color:#17243b !important; border-color:#9aabc4 !important; }
 div[data-testid="stNumberInput"] button { color:#243751 !important; }
-.stButton>button,div[data-testid="stFormSubmitButton"] button { border:2px solid #1c3fae; border-radius:12px; color:#fff; font-weight:700; background:#2348c8; padding:.68rem 1.1rem; }
-.stButton>button:hover,div[data-testid="stFormSubmitButton"] button:hover { color:#fff; border:2px solid #142f8a; background:#193aa9; }
-[data-testid="stSidebar"] { background:#e8eef9; border-right:1px solid #c9d5e7; }
-[data-testid="stSidebar"] p, [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] { color:#263750; }
+button[data-testid="stBaseButton-primary"], div[data-testid="stFormSubmitButton"] button { border:2px solid #5420aa !important; border-radius:14px !important; color:#fff !important; font-weight:800 !important; background:#6d28d9 !important; padding:.78rem 1.2rem !important; box-shadow:0 5px 0 #4c1d95,0 8px 18px rgba(83,42,151,.2) !important; transition:transform .15s ease,background .15s ease !important; }
+button[data-testid="stBaseButton-primary"] *, div[data-testid="stFormSubmitButton"] button * { color:#fff !important; }
+button[data-testid="stBaseButton-primary"]:hover, div[data-testid="stFormSubmitButton"] button:hover { color:#fff !important; border-color:#42168d !important; background:#5720b5 !important; transform:translateY(-1px); }
+button[data-testid="stBaseButton-primary"]:focus-visible, div[data-testid="stFormSubmitButton"] button:focus-visible { outline:3px solid #006f78 !important; outline-offset:3px !important; }
 hr { border-color:#c9d5e7; }
 [data-testid="stMetric"] { background:#fff; padding:14px 16px; border:1px solid var(--line); border-radius:14px; box-shadow:0 5px 14px rgba(36,57,93,.04); }
 [data-testid="stMetricLabel"] p { color:#43536b !important; }
@@ -68,23 +67,9 @@ except Exception as exc:
 st.markdown("""
 <div class="hero">
   <div class="eyebrow">NOVAPLAY STUDIOS · PLAYER INTELLIGENCE</div>
-  <h1>Player Segment Studio</h1>
-  <p>Explore how a player profile is classified, then consider a segment-specific promotion idea to test. Predictions are decision support—not a guarantee of spending or campaign impact.</p>
+  <h1>Player Segment Lab</h1>
 </div>
 """, unsafe_allow_html=True)
-
-with st.sidebar:
-    st.markdown("### NovaPlay")
-    st.caption("SEGMENT CLASSIFICATION · MODEL DEMO")
-    st.markdown("---")
-    st.markdown("**How to use**")
-    st.write("Enter the six profile and gameplay fields, then choose **Predict segment**.")
-    st.markdown("---")
-    st.markdown("**Model**")
-    st.write("Gini Decision Tree")
-    st.write("Six profile/session predictors")
-    st.markdown("---")
-    st.caption("Training data are synthetic/expanded project data. Do not use this demo to make live player decisions.")
 
 country_options = [
     "Australia", "Bangladesh", "Brazil", "Canada", "China", "Denmark", "Egypt", "France", "Germany", "India", "Iran", "Italy", "Japan", "Mexico", "Netherlands", "Norway", "Russia", "Saudi Arabia", "South Korea", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States", "Afghanistan", "Unknown"
@@ -107,22 +92,11 @@ with col_form:
             avg_length = st.number_input("Average session length (minutes)", min_value=0.0, max_value=600.0, value=20.0, step=1.0, help="Use a non-negative value in minutes.")
         submitted = st.form_submit_button("Predict player segment", use_container_width=True)
 
-with col_side:
-    st.subheader("What the model uses")
-    st.markdown("""
-    <div class="panel">
-      <div class="panel-label">Input signals</div>
-      <div class="panel-value">Profile + engagement</div>
-      <div class="small">Age, country, device, game genre, session count and average session length.</div>
-    </div>
-    """, unsafe_allow_html=True)
-    st.write("")
-    st.info("Direct spending amounts and generated 30-day helper fields are not entered, to reduce target leakage and keep the demo focused on the selected predictor set.")
-
+record = None
+prediction = None
+scores = {}
+score = 0.0
 if submitted:
-    if avg_length < 0:
-        st.error("Average session length cannot be negative.")
-        st.stop()
     record = pd.DataFrame([{
         "Age": float(age),
         "Country": str(country),
@@ -137,40 +111,50 @@ if submitted:
     scores = {str(label): float(prob) for label, prob in zip(classes, probabilities)}
     score = scores.get(prediction, 0.0)
 
-    st.markdown("---")
-    st.subheader("Prediction")
-    result_left, result_right = st.columns([1, 1], gap="large")
-    with result_left:
+with col_side:
+    st.subheader("Player segment result")
+    if not submitted:
+        st.markdown("""
+        <div class="segment">
+          <div class="eyebrow">YOUR RESULT WILL APPEAR HERE</div>
+          <h2>Ready when you are</h2>
+          <div class="small">Complete the player profile and select the purple button to see the segment and a tailored offer idea.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
         st.markdown(f"""
         <div class="segment">
           <div class="eyebrow">PREDICTED SPENDING SEGMENT</div>
           <h2>{prediction}</h2>
-          <div class="small">Model score for this predicted class: {score:.1%}. This score is not a guarantee of the player's future spending.</div>
         </div>
         """, unsafe_allow_html=True)
-        st.write("")
-        st.markdown("**Class scores**")
-        st.bar_chart(pd.DataFrame({"Model score": [scores.get(label, 0.0) for label in LABELS]}, index=LABELS), horizontal=True, height=190, color="#2348c8")
-    with result_right:
-        st.markdown("**Illustrative promotion idea to test**")
+        st.metric("Model score for this segment", f"{score:.0%}")
+        st.progress(score)
+        st.caption("This is the model's score for this input—not the model's overall accuracy, and not a guarantee of future spending.")
+        with st.expander("Compare scores across all segments"):
+            st.bar_chart(pd.DataFrame({"Model score": [scores.get(label, 0.0) for label in LABELS]}, index=LABELS), horizontal=True, height=170, color="#6d28d9")
+
         ideas = {
-            "Minnow": ("Low-commitment introduction", "Test an optional, low-price starter bundle. Measure incremental conversion and contribution margin, and monitor retention."),
-            "Dolphin": ("Mid-tier value offer", "Test a time-limited value bundle or loyalty reward. Compare purchase lift and margin with a holdout group."),
-            "Whale": ("Premium experience", "Test a premium bundle or VIP-style benefit with clear value. Monitor incremental margin and player retention."),
+            "Minnow": ("Starter bundle", "Test an optional, low-price starter bundle with clear value."),
+            "Dolphin": ("Value bundle", "Test a time-limited bundle or loyalty reward suited to regular players."),
+            "Whale": ("Premium experience", "Test a premium bundle or VIP-style benefit with clear value."),
         }
-        title, desc = ideas[prediction]
+        offer_title, offer_text = ideas[prediction]
         st.markdown(f"""
         <div class="panel">
-          <div class="panel-label">HYPOTHESIS · NOT A PROVEN RECOMMENDATION</div>
-          <div class="panel-value">{title}</div>
-          <div class="small">{desc}</div>
+          <div class="panel-label">OFFER IDEA TO TEST</div>
+          <div class="panel-value">{offer_title}</div>
+          <div class="small">{offer_text}</div>
         </div>
         """, unsafe_allow_html=True)
-        st.write("")
-        st.caption("Business check: compare the offer with a holdout group using incremental IAP revenue, contribution margin, conversion and retention.")
+        st.markdown("**How this can support NovaPlay's goal**")
+        st.write("Use the segment to define a test audience, then compare the offer with a holdout group. Track incremental IAP revenue, contribution margin and retention; expand only if the test improves business outcomes. This supports evaluation of the 15% revenue-growth goal—it does not guarantee it.")
 
+st.info("The model uses age, country, device, favourite game genre, session count and average session length. Spending amounts and generated 30-day helper fields are not entered.")
+
+if submitted:
     st.markdown("#### Why did the model predict this?")
-    st.write("The chart below shows the features the fitted tree relied on most across all training examples. These are associations used by the model; they do not show that a feature causes spending.")
+    st.write("This chart ranks the features the fitted tree used most across its training data. It helps explain the model overall; it does not identify the exact reason for this one player's result, and it does not show cause and effect.")
     preprocessor = model.named_steps["preprocess"]
     estimator = model.named_steps["model"]
     names = preprocessor.get_feature_names_out()
@@ -185,8 +169,8 @@ if submitted:
             base = name
         aggregated[base] = aggregated.get(base, 0.0) + float(importance)
     importance = pd.Series(aggregated).sort_values(ascending=True).tail(6)
-    st.bar_chart(importance, horizontal=True, height=250, color="#006f78")
-    st.caption("Feature importance is a global summary of how the tree made its splits. It is not causal evidence and does not explain this individual prediction on its own.")
+    st.bar_chart(importance, horizontal=True, height=250, color="#6d28d9")
+    st.caption("Feature importance is a global summary, not an explanation of an individual prediction.")
 
     with st.expander("View the player inputs used"):
         st.dataframe(record, hide_index=True, use_container_width=True)
