@@ -18,26 +18,34 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-:root { --ink:#f3f5fb; --muted:#a6afc5; --panel:#151c2d; --panel2:#1b2438; --line:#2a3550; --mint:#75f0c2; --violet:#a48bff; }
-.stApp { background: radial-gradient(ellipse at 10% 0%, #182546 0%, #0b1020 48%, #090d18 100%); color:var(--ink); font-family:'DM Sans',sans-serif; }
-.block-container { max-width: 1220px; padding-top:2rem; padding-bottom:3rem; }
-h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.025em; }
-.hero { border:1px solid #2a3550; border-radius:24px; padding:28px 32px; background:linear-gradient(115deg,rgba(26,38,64,.96),rgba(19,26,43,.94)); box-shadow:0 16px 50px rgba(0,0,0,.18); margin-bottom:22px; }
-.eyebrow { color:var(--mint); font-weight:700; letter-spacing:.13em; text-transform:uppercase; font-size:.72rem; }
-.hero h1 { font-size:2.15rem; margin:.35rem 0 .35rem; color:#fff; }
-.hero p { color:#bdc7da; font-size:1rem; margin:0; max-width:820px; }
-.panel { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:rgba(21,28,45,.88); min-height:116px; }
-.panel-label { color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; }
-.panel-value { color:#fff; font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700; margin-top:8px; }
-.segment { border:1px solid rgba(117,240,194,.35); border-radius:20px; padding:26px; background:linear-gradient(140deg,rgba(117,240,194,.12),rgba(164,139,255,.12)); }
-.segment h2 { font-size:2rem; margin:.3rem 0; color:#fff; }
-.small { color:var(--muted); font-size:.9rem; }
-div[data-testid="stForm"] { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:rgba(21,28,45,.9); }
-.stButton>button,div[data-testid="stFormSubmitButton"] button { border:0; border-radius:12px; color:#08131c; font-weight:800; background:linear-gradient(90deg,#75f0c2,#96e9e2); padding:.62rem 1.1rem; }
-.stButton>button:hover,div[data-testid="stFormSubmitButton"] button:hover { color:#08131c; border:0; filter:brightness(1.06); }
-[data-testid="stSidebar"] { background:#111827; border-right:1px solid var(--line); }
-hr { border-color:var(--line); }
-[data-testid="stMetric"] { background:rgba(21,28,45,.8); padding:14px 16px; border:1px solid var(--line); border-radius:14px; }
+:root { --ink:#17243b; --muted:#43536b; --panel:#ffffff; --line:#c9d5e7; --blue:#2348c8; --teal:#006f78; --violet:#6039a6; }
+.stApp { background:linear-gradient(145deg,#f7f9fd 0%,#edf3fc 58%,#e8f3f7 100%); color:var(--ink); font-family:'DM Sans',sans-serif; }
+[data-testid="stAppViewContainer"], [data-testid="stHeader"] { background:transparent; }
+.block-container { max-width:1220px; padding-top:2rem; padding-bottom:3rem; }
+h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.025em; color:#17243b; }
+p, label, [data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"] { color:#263750; }
+.hero { border:1px solid #c5d3ea; border-radius:24px; padding:28px 32px; background:linear-gradient(115deg,#e7efff,#f9fbff 70%,#e8f7f7); box-shadow:0 12px 30px rgba(34,63,119,.09); margin-bottom:22px; }
+.eyebrow { color:#006874; font-weight:700; letter-spacing:.13em; text-transform:uppercase; font-size:.72rem; }
+.hero h1 { font-size:2.15rem; margin:.35rem 0 .35rem; color:#17243b; }
+.hero p { color:#344760; font-size:1rem; margin:0; max-width:820px; }
+.panel { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:#fff; min-height:116px; box-shadow:0 6px 18px rgba(36,57,93,.05); }
+.panel-label { color:#43536b; font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; }
+.panel-value { color:#17243b; font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700; margin-top:8px; }
+.segment { border:2px solid #5970b8; border-radius:20px; padding:26px; background:linear-gradient(140deg,#e3f7f3,#edf0ff); }
+.segment h2 { font-size:2rem; margin:.3rem 0; color:#17243b; }
+.small { color:#43536b; font-size:.92rem; }
+div[data-testid="stForm"] { border:1px solid var(--line); border-radius:18px; padding:20px 22px; background:#fff; box-shadow:0 8px 24px rgba(36,57,93,.06); }
+[data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] label { color:#243751 !important; font-weight:600 !important; }
+div[data-testid="stNumberInput"] input, div[data-testid="stSelectbox"] [data-baseweb="select"] > div { background:#fff !important; color:#17243b !important; border-color:#9aabc4 !important; }
+div[data-testid="stNumberInput"] button { color:#243751 !important; }
+.stButton>button,div[data-testid="stFormSubmitButton"] button { border:2px solid #1c3fae; border-radius:12px; color:#fff; font-weight:700; background:#2348c8; padding:.68rem 1.1rem; }
+.stButton>button:hover,div[data-testid="stFormSubmitButton"] button:hover { color:#fff; border:2px solid #142f8a; background:#193aa9; }
+[data-testid="stSidebar"] { background:#e8eef9; border-right:1px solid #c9d5e7; }
+[data-testid="stSidebar"] p, [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] { color:#263750; }
+hr { border-color:#c9d5e7; }
+[data-testid="stMetric"] { background:#fff; padding:14px 16px; border:1px solid var(--line); border-radius:14px; box-shadow:0 5px 14px rgba(36,57,93,.04); }
+[data-testid="stMetricLabel"] p { color:#43536b !important; }
+[data-testid="stMetricValue"] { color:#17243b !important; }
 div[data-testid="stAlert"] { border-radius:14px; }
 footer { visibility:hidden; }
 </style>
@@ -142,7 +150,7 @@ if submitted:
         """, unsafe_allow_html=True)
         st.write("")
         st.markdown("**Class scores**")
-        st.bar_chart(pd.DataFrame({"Model score": [scores.get(label, 0.0) for label in LABELS]}, index=LABELS), horizontal=True, height=190, color="#75f0c2")
+        st.bar_chart(pd.DataFrame({"Model score": [scores.get(label, 0.0) for label in LABELS]}, index=LABELS), horizontal=True, height=190, color="#2348c8")
     with result_right:
         st.markdown("**Illustrative promotion idea to test**")
         ideas = {
@@ -177,7 +185,7 @@ if submitted:
             base = name
         aggregated[base] = aggregated.get(base, 0.0) + float(importance)
     importance = pd.Series(aggregated).sort_values(ascending=True).tail(6)
-    st.bar_chart(importance, horizontal=True, height=250, color="#a48bff")
+    st.bar_chart(importance, horizontal=True, height=250, color="#006f78")
     st.caption("Feature importance is a global summary of how the tree made its splits. It is not causal evidence and does not explain this individual prediction on its own.")
 
     with st.expander("View the player inputs used"):
